@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="Style.css">
+    <link rel="footer.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css " integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<link href="https://fonts.cdnfonts.com/css/fear" rel="stylesheet">
+    
+                
+                
+	<title>Pagina1</title>
+</head>
+<body>
+	<div style="margin: 24px;">
+		<nav class="navbar navbar-light" style="background-color: #D4B7C4;">
+    		<div class="container">
+    			<a class="navbar-brand" href="index.html">Inicio</a>
+    			<ul class="nav navbar-nav">
+                 <li>
+                        <a href="formulario.html">Formulario</a>
+               </li>
+                <li>
+                    <a href="resultado.html">Resultado</a>
+                </li>
+                <li>
+                    <a href="perfil.html">Contacto</a>
+                </li>
+                <li>
+                    <a href="apimovies.html">Peliculas</a>
+                </li>
+                <li>
+                        <a href="indexcal.html">Calculadora</a>
+                    </li>
+                <li>
+                    <a href="calculadorafisica.html">Fisica</a>
+                </li>
+                <li class="active">
+                    <a href="cuestionario.html">Cuestionario</a>
+                </li>
+    		</ul>
+    	</div>
+    </nav>
+<style>
+    body{
+     align-items: center;
+     justify-content: center;
+     overflow: hidden;
+     margin: 0;
+    }
+    .quiz-container{
+        background-color: rgb(231, 221, 231);
+        border-radius: 10px;
+        box-shadow: 0 0 15px white;
+        width: 500px;
+        overflow: hidden;
+    }
+    .quiz-header{
+        padding: 4rem;
+    }
+    h2{
+        padding: 1rem;
+        text-align:center ;
+        margin: 0;
+    }
+    ul{
+        list-style-type: none;
+        padding: 0;
+    }
+    ul li{
+        font-size: 16px;
+        margin: 10px 0;
+    }
+    ul li label{
+        cursor: pointer;
+    }
+    button{
+        background-color: rgb(231, 105, 179);
+        color: aliceblue;
+        border: none;
+        display: black;
+        width: 100%;
+        cursor: pointer;
+        font-size:18px ;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        padding: 10px;
+    }
+    button:hower{
+        background-color: mediumaquamarine;
+    }
+    button:focus{
+        outline: none;
+        background-color: pink;
+    }
+</style>
+	<div class="container">
+            <div class="quiz-container" id="quiz">
+                <div class="quiz-header">
+                    <div class="image-container">
+                        <img src="image.jpg" alt="Imagen" id="question-image" style="width: 250px;" height="200px;">
+                    
+                    <h2 id="question">cuantas horas debe dormir una persona?</h2>
+                    <ul>
+                        <li>
+                            <input type="radio" id="answer" id="a" class="answer">
+                            <label for="a" id="a_text">8</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="answer" id="b" class="answer">
+                            <label for="b" id="b_text">7</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="answer" id="c" class="answer">
+                            <label for="c" id="c_text">2</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="answer" id="d" class="answer">
+                            <label for="d" id="d_text">12</label>
+                        </li>
+                    </ul>
+                </div>
+                <button id="submit">Siguiente</button>
+            </div>
+        </div>
+        <script>
+    //este es un arreglo
+    const quizData=[
+        {
+            question: "cuantos huesos tiene el cuerpo humano?",
+            image:"huesos.jpg", 
+            a:"40",
+            b:"206",
+            c:"290",
+            d:"302",
+            correct: "b",
+        },
+        {
+            question: " cuando empezo a hacer musica Natanael Cano?  ",
+            image:"nat.jpg", 
+            a:"2018",
+            b:"2023",
+            c:"2019",
+            d:"2017",
+            correct: "a",
+        },
+        {
+            question: " cuanto puede durar un humano sin tomar agua?  ",
+            image:"agua.jpg", 
+            a:"2 dias",
+            b:"2-3 dias",
+            c:"3-5 dias",
+            d:"4-5 dias",
+            correct: "c",
+        },
+        {
+            question: " primera cancion de  Natanael Cano?  ",
+            image:"nata.jpg", 
+            a:"amor tumbado",
+            b:"se murio",
+            c:"el drip",
+            d:"el de los lentes gucci",
+            correct: "d",
+        },
+        {
+            question: " quien fundo Google?  ",
+            image:"google.png", 
+            a:"Larry Page, Serguei Brin",
+            b:"Lady gaga",
+            c:"leonardo Dicaprio",
+            d:"Mark Zuckerberg",
+            correct: "a",
+        },
+        {
+            question: "cuando sale el album Nata Montana?  ",
+            image:"natamon.jpg", 
+            a:"30 de febrero",
+            b:"30 de julio",
+            c:"29 de junio",
+            d:"27 junio",
+            correct: "c",
+        },
+        {
+            question: "Quien invento el telescopio?  ",
+            image:"telescopio.jpg", 
+            a:"Juan Roget",
+            b:"Leonardo Da Vinci",
+            c:"Carl Lewis",
+            d:"Francisco pizarro",
+            correct: "a",
+        },
+        {
+            question: "Edad de Natanael Cano?  ",
+            image:"natana.jpg", 
+            a:"21",
+            b:"19",
+            c:"22",
+            d:"25",
+            correct: "c",
+        },
+        {
+            question: "En que monumento se encuentra el Taj Mahal",
+            image:"taj.jpg", 
+            a:"Paris",
+            b:"Arabia Saudita",
+            c:"India",
+            d:"Barbados",
+            correct: "b",
+        },
+        {
+            question: "Que pais es?  ",
+            image:"corea.png", 
+            a:"italia",
+            b:"corea del sur",
+            c:"brasil",
+            d:"Filipinas",
+            correct: "b",
+        },
+        {
+            question: "Que pais es?  ",
+            image:"viet.png", 
+            a:"EE.UU",
+            b:"Egipto",
+            c:"Kenia",
+            d:"Vietnam",
+            correct: "d",
+        },
+        {
+            question: "En que fecha se creo la marca coca Cola  ",
+            image:"coca.jpg", 
+            a:"5 de febrero de 1882",
+            b:"10 de enero de 1901",
+            c:"24 de octumbre de 1890",
+            d:"18 de marzo del 1886",
+            correct: "a",
+        },
+        {
+            question: "En donde se invento la pizza con piña? ",
+            image:"pizza.jpg", 
+            a:"Canada",
+            b:"Hawaii",
+            c:"Mexico",
+            d:"Isla polinesia",
+            correct: "a",
+        },
+        {
+           question: "Cuanto tiempo tarda la luz del sol en llegar a la tierra?",
+           image: "sol.jpg",
+           a:"12 minutos",
+           b:"1 dia",
+           c:"12 horas",
+           d:"8 minutos",
+           correct: "d",
+        },
+ ];
+    const quiz = document.getElementById('quiz');
+            const answerEls = document.querySelectorAll('.answer');
+            const questionEl = document.getElementById('question');
+            const a_text = document.getElementById('a_text');
+            const b_text = document.getElementById('b_text');
+            const c_text = document.getElementById('c_text');
+            const d_text = document.getElementById('d_text');
+            const submitBtn = document.getElementById('submit');
+
+            let currentQuiz = 0;
+            let score = 0;
+
+            loadQuiz();
+
+            function loadQuiz() {
+                deselectAnswers();
+                const currentQuizData = quizData[currentQuiz];
+                questionEl.innerText = currentQuizData.question;
+                a_text.innerText = currentQuizData.a;
+                b_text.innerText = currentQuizData.b;
+                c_text.innerText = currentQuizData.c;
+                d_text.innerText = currentQuizData.d;
+
+                const questionImage = document.getElementById("question-image");
+                questionImage.src = currentQuizData.image;
+            }
+            function deselectAnswers() {
+                answerEls.forEach(answerEl => answerEl.checked = false);
+            }
+            function getSelected() {
+                let answer;
+                answerEls.forEach(answerEl => {
+                    if (answerEl.checked) {
+                        answer = answerEl.id;
+                    }
+                });
+                return answer;
+            }
+
+            submitBtn.addEventListener('click', () => {
+                const answer = getSelected();
+
+                if (answer) {
+                    if (answer === quizData[currentQuiz].correct) {
+                    score++;
+                }
+
+                currentQuiz++;
+                if (currentQuiz < quizData.length) {
+                    loadQuiz()
+                } else {
+                    quiz.innerHTML = ` 
+                       <h2>Contestaste ${score}/${quizData.length} de preguntas correctamente</h2>
+                       <button onclick="location.reload()">Reload</button>
+                       ` 
+                   }
+               }
+           })
+</script>
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2>Contactame</h2>
+                <p>si estas interesado en contactarme, puedes hacerlo a traves de cualquiera de las siguientes redes sociales:</p>
+                <div class="contact-links">
+                    <a href="https://www.facebook.com/miperfil" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/natanael_cano" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.twitter.com/miperfil" target="_blank"><i class="fab fa-discord"></i></a>
+                    <a href="https://www.instagram.com/miperfil" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    const socialnetworks = document.querySelectAll('.contact-links a');
+    socialnetworks,forEach(link => {
+    link.addEventListener('click', e =>{
+            e.preventDefault();
+            window.open(link.href, '_blank');
+        });
+    });
+</body>
+</html>

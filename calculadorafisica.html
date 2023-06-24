@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Stylefisica.css">
+    <link rel="stylesheet" type="text/css" href="footer.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" &quot; integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <title>index</title>
+</head>
+<body>
+
+    <div style="margin: 24px;">
+		<nav class="navbar navbar-light" style="background-color: #D4B7C4;">
+    		<div class="container">
+    			<a class="navbar-brand" href="index.html">Inicio</a>
+    			<ul class="nav navbar-nav">
+                    <li>
+                        <a href="formulario.html">Formulario</a>
+                    </li>
+                    <li>
+                    <a href="resultado.html">Resultado</a>
+                </li>
+                <li>
+                    <a href="perfil.html">Contacto</a>
+                </li>
+                <li>
+                    <a href="apimovies.html">Peliculas</a>
+                </li>
+                <li>
+                        <a href="indexcal.html">Calculadora</a>
+                    </li>
+                <li>
+                    <a href="calculadorafisica.html">Fisica</a>
+                </li>
+                <li class="active">
+                    <a href="cuestionario.html">Cuestionario</a>
+                </li>
+    		</ul>
+    	</div>
+    </nav>
+</div>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Calculadora de Física</h1>
+      <p class="lead">La física, del griego fisis («naturaleza»), es la ciencia natural que estudia, mediante leyes fundamentales, la energía, la materia, el tiempo y el espacio, es decir, el universo mismo</p>
+    </div>
+  </div>
+  <form id="formulario">
+      <label for="distancia"> Distancia:</label>
+      <input type="text" id="distancia" name="distancia">
+      <select id="distanciaUnidad">
+          <option value="metros">Metros</option>
+          <option vallue="pies">Pies</option>
+      </select>
+      <br>
+      <label for="tiempo">Tiempo</label>
+      <input type="text" id="tiempo" name="tiempo">
+      <select id="tiempounidad">
+          <option value="segundos">segundos</option>
+          <option vallue="horas">horas</option>
+      </select>
+      <br>
+      <label for="velocidadUnidad">Unidad de velocidad</label>
+      <select id="velocidadUnidad">
+      <option value="metros_por_segundos">m/s</option>
+      <option value="pies_por_segundos">ft/s</option>
+      <option value="kilometros_por_hora">km/hr</option>
+      <option value="millas_por_hora">mph</option>
+  </select>
+  <br>
+  <br>
+  <button type="button" class="btn btn-info" value="Calcular" onclick="Calcular()">Calcular</button>
+  </form>
+  <br>
+  <p id="resultado"></p>
+  <p style="color: #9CBFA7"; background-color:#B3DEC1>Velocidad: <span id="velocidad"></span></p>
+  <p style="color: #9CBFA7"; background-color:#B3DEC1>Aceleracion: <span id="aceleracion"></span></p>
+  <p style="color: #9CBFA7"; background-color:#B3DEC1>Rapidez: <span id="rapidez"></span></p>
+  <script type="text/javascript">
+      function Calcular () {
+          const distancia = parseFloat(document.getElementById('distancia').value);
+          const tiempo = parseFloat(document.getElementById('tiempo').value);
+      //Estas tres variables son para poner las unidades metricas
+          const distanciaUnidad = document.getElementById('DistanciaUnidad').value;
+          const tiempoUnidad = document.getElementById('tiempoUnidad').value;
+          const valocidadUnidad = docuemnt.getElementById ('velocidadUnidad').value;
+  
+          //Convertir unidades a Sistema Metrico Decimal
+          let distanciaSI = 0;
+          let tiempoSI = 0;
+  
+          //dependiendo las unidades que seleccionaron, uso ste IF
+          if(distanciaUnidad === 'metros'){
+          distanciaSI = distancia;
+      } else if (distanciaUnidad === 'pies'){
+          distanciaSI = distancia /3.281; //son tres pies por cada metro, por eso la division de 3.281, para mas informacion, checa tus puntos de fisica.
+      }
+      if (tiempoUnidad === 'segundos'){
+      tiempoSI = tiempo;
+  }else if(tiempoUnidad === 'horas'){
+  tiempoSI = tiempo * 3600; //lo mismo que arriba, multiplico por 3600 para la cantidad de segundos en un minuto (60) por los 60 minutos en una hora (60) = 60*60 = 3600
+  }
+  
+  //con el siguiente codigo, voy a calcular la velocidad, aceleracion y la rapidez (aunque no hay formula, por lo pronto para ella, solo dire que es igual a la velocidad
+  
+  let velocidad = 0;
+  let aceleracion = 0;
+  let rapidez = 0;
+  
+  if (velocidadUnidad === 'metros_por_segundos') {
+      velocidad = distanciaSI / tiempoSI;
+      rapidez = velocidad;
+      aceleracion = velocidad / tiempoSI;
+  }
+  else if (velocidadUnidad === 'pies_por_segundos'){
+      velocidad = (distanciaSI * 3.281) / tiempoSI;
+      rapidez = velocidad;
+      aceleracion = velocidad / tiempoSI;
+  }
+  else if (velocidadUnidad === 'kilometros_por_hora'){
+      velocidad = (distanciaSI / 1000) / (tiempoSI / 3600);
+      rapidez = velocidad;
+      aceleracion = velocidad / tiempoSI;
+  }
+  else if (velocidadUnidad === 'millas_por_hora'){
+      velocidad = (distanciaSI * 1000) / (tiempoSI / 3600);
+      rapidez = velocidad;
+      aceleracion = velocidad / (tiempoSI / 3600);
+  }
+  //mostrar los resultados 
+  let resultado = '';
+  
+          document.getElementById('velocidad').textContent=distancia.toFixed(2) + '' + velocidadUnidad; // el 2, son la cantidad desde el punto decimal cuando se haga la division, lo que dice velocidadUnidad, solo son las unidades que hice en el form arriba 
+          document.getElementById('aceleracion').textContent=velocidad.toFixed(2) + '' + m/s;
+          document.getElementById('rapidez').textContent=rapidez.toFixed(2) + '' + velocidadUnidad;
+      }
+  </script>
+<footer>
+	<div class="container">
+		<div class="footer-content">
+			<div class="footer-section about">
+				<h2>Contactame</h2>
+				<p>si estas interesado en contactarme, puedes hacerlo a traves de cualquiera de las siguientes redes sociales:</p>
+				<div class="contact-links">
+					<a href="https://www.facebook.com/miperfil" target="_blank"><i class="fab fa-facebook"></i></a>
+					<a href="https://www.instagram.com/miperfil" target="_blank"><i class="fab fa-instagram"></i></a>
+				    <a href="https://www.twitter.com/miperfil" target="_blank"><i class="fab fa-discord"></i></a>
+				    <a href="https://www.instagram.com/miperfil" target="_blank"><i class="fab fa-twitter"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<script type="text/javascript">
+	//con lo siguiente, hare que los links de las paginas se abran mediante javascript en una pagina nueva
+	const socialnetworks = document.querySelectAll('.contact-links a');
+	socialnetworks,forEach(link => {
+	link.addEventListener('click', e =>{
+			e.preventDefault();
+			window.open(link.href, '_blank');
+		});
+	});
+</script>
+</footer>
+</body>
+</html>

@@ -1,0 +1,55 @@
+body{
+        background-color: #F4F3F7;
+}
+.center{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        width: 500px;
+}
+ titulo{
+font-family: 'Mondera', sans-serif;                                                                                  
+  font-size: 60px;
+  aling-content: center;   
+  }
+  table{
+        margin-left: 200px;
+        background-color: grey;
+        color: white;
+        text-aling: center;
+        width: 700px;
+  }
+  th{
+          color: black;
+}
+verde{
+    color:green;
+  }
+morado{
+    color:purple;
+    table{
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    th, td{
+      text-align: left;
+      padding: 8px;
+    }
+    th{
+      background-color: blue;
+      color: white;
+    }
+    tr:nth-child(even){
+      background-color: blue;
+    }
+    img{
+      width: 100px;
+      height: 100px;
+    }
+    }
+
+}
+}
+}

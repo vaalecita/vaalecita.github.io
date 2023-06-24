@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=decive-width, initial-scale=1">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" &quot; integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="footer.css">
+	<title>Footer</title>
+</head>
+<body>
+<footer>
+	<div class="container">
+		<div class="footer-content">
+			<div class="footer-section about">
+				<h2>Contactame</h2>
+				<p>si estas interesado en contactarme, puedes hacerlo a traves de cualquiera de las siguientes redes sociales:</p>
+				<div class="contact-links">
+					<a href="https://www.facebook.com/miperfil" target="_blank"><i class="fab fa-facebook"></i></a>
+					<a href="https://www.instagram.com/natanael_cano" target="_blank"><i class="fab fa-instagram"></i></a>
+				    <a href="https://www.twitter.com/miperfil" target="_blank"><i class="fab fa-discord"></i></a>
+				    <a href="https://www.instagram.com/miperfil" target="_blank"><i class="fab fa-twitter"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<script type="text/javascript">
+	//con lo siguiente, hare que los links de las paginas se abran mediante javascript en una pagina nueva
+	const socialnetworks = document.querySelectAll('.contact-links a');
+	socialnetworks,forEach(link => {
+	link.addEventListener('click', e =>{
+			e.preventDefault();
+			window.open(link.href, '_blank');
+		});
+	});
+</script>
+</footer>
+</body>
+</html>

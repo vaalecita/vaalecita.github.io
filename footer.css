@@ -1,0 +1,45 @@
+footer{
+background-color: #799496;
+color: white;
+padding: 30px 0;
+}
+.container{
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+.footer-contact{
+	display: flex;
+	flex-wrap: wrap;
+}
+.footer-selection{
+	width: 100%;
+	padding: 20px;
+	box-sizing: border-box;
+}
+.about {
+	text-align: center;
+}
+.about h2{
+	margin-bottom: 20px;
+}
+.about p{
+	font size: 18px;
+	line-height: 1.5;
+	margin-bottom: 20px;
+}
+.contact-links{
+	display: flex;
+	justify-content: center;
+}
+.contact-links a{
+	display: inline-block;
+	color:#BAD9B5;
+	font-size: 24px;
+	margin: 0 10px;
+	transition: all 0.3 ease;
+}
+.contact-links a:hover{
+	transform: translateY(-5px);
+}
+

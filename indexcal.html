@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="stylecalculadora.css">
+	<title>Calculdora</title>
+</head>
+<body>
+    <div style="margin: 24px;">
+        <nav class="navbar navbar-light" style="background-color: #EDD2E0;">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Inicio</a>
+                <ul class="nav navbar-nav">
+                 <li>
+                        <a href="formulario.html">Formulario</a>
+               </li>
+                <li>
+                    <a href="resultado.html">Resultado</a>
+                </li>
+                <li>
+                    <a href="perfil.html">Contacto</a>
+                </li>
+                <li>
+                    <a href="apimovies.html">Peliculas</a>
+                </li>
+                <li>
+                        <a href="indexcal.html">Calculadora</a>
+                    </li>
+                <li>
+                    <a href="calculadorafisica.html">Fisica</a>
+                </li>
+                <li class="active">
+                    <a href="cuestionario.html">Cuestionario</a>
+                </li>
+                </ul>
+            </div>
+        </nav>
+	<div class="calc">
+    <input type="text" id="ans">
+    <div class= "btn">
+        <input type="button" value='C' onclick="Clear()">
+        <input type="button" value='%' onclick="Solve('%')">
+        <input type="button" value='←' onclick="Back('←')">
+        <input type="button" value='/' onclick="Solve('/')">
+        <br>
+        <input type="button" value='7' onclick="Solve('7')">
+        <input type="button" value='8' onclick="Solve('8')">
+        <input type="button" value='9' onclick="Solve('9')">
+        <input type="button" value='x' onclick="Solve('*')">
+        <br>
+        <input type="button" value='4' onclick="Solve('4')">
+        <input type="button" value='5' onclick="Solve('5')">
+        <input type="button" value='6' onclick="Solve('6')">
+        <input type="button" value='-' onclick="Solve('-')">
+        <br>
+        <input type="button" value='1' onclick="Solve('1')">
+        <input type="button" value='2' onclick="Solve('2')">
+        <input type="button" value='3' onclick="Solve('3')">
+        <input type="button" value='+' onclick="Solve('+')">
+        <br>
+        <input type="button" value='00' onclick="Solve('00')">
+        <input type="button" value='0' onclick="Solve('0')">
+        <input type="button" value='.' onclick="Solve('.')">
+        <input type="button" value='=' onclick="Result()">
+        <br>
+    </div>
+    </div>
+
+    <script type="text/javascript">
+    	const Solve=(val)=>{
+    	    const v=document.getElementById('ans');
+    			v.value +=val;
+    	}
+    	const Result=() =>{
+            const v1=document.getElementById('ans').value;
+    		const v2=eval(v1);
+    		document.getElementById('ans').value=v2;
+    	}
+    	const Clear = () =>{
+    		const input=document.getElementById('ans');
+    		input.value='';
+    		}
+    		const Back = () =>{
+    			const back=document.getElementById('ans');
+    			back.value=back.value.slice(0,-1);
+    		}
+
+    </script>
+   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=decive-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" &quot; integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="footer.css">
+    <title>Footer</title>
+</head>
+<body>
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2>Contactame</h2>
+                <p>si estas interesado en contactarme, puedes hacerlo a traves de cualquiera de las siguientes redes sociales:</p>
+                <div class="contact-links">
+                    <a href="https://www.facebook.com/miperfil" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/natanael_cano" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.twitter.com/miperfil" target="_blank"><i class="fab fa-discord"></i></a>
+                    <a href="https://www.instagram.com/miperfil" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript">
+    //con lo siguiente, hare que los links de las paginas se abran mediante javascript en una pagina nueva
+    const socialnetworks = document.querySelectAll('.contact-links a');
+    socialnetworks,forEach(link => {
+    link.addEventListener('click', e =>{
+            e.preventDefault();
+            window.open(link.href, '_blank');
+        });
+    });
+</script>
+</footer></script>
+</footer>
+</body>
+</html>
